@@ -1,0 +1,44 @@
+{
+  "intents": [
+    {
+      "tag": "cumprimento",
+      "patterns": ["olá", "oi", "eai", "bom dia", "boa tarde", "boa noite", "hey", "hello", "opa", "salve", "fala aí", "e aí cara", "oi tudo bem", "oii", "oie", "oiii", "olá pessoal"],
+      "responses": ["Olá! Bem-vindo à Pizzaria Delícia! Como posso ajudá-lo hoje?", "Oi! Que bom ter você aqui! O que gostaria de pedir?", "Olá! Pronto para uma pizza deliciosa? Como posso ajudar?", "Bem-vindo! Estou aqui para ajudar com seu pedido. O que deseja?"]
+    },
+    {
+      "tag": "compra",
+      "patterns": ["quero comprar uma pizza", "gostaria de pedir", "quero uma pizza", "pode me vender", "vou querer", "preciso de uma pizza", "quero fazer um pedido", "gostaria de comprar", "me vende uma pizza", "quero pedir uma pizza margherita", "vou pedir uma calabresa", "preciso de uma pizza grande", "quero uma pizza media", "pode fazer uma pizza", "quero uma pizza de pepperoni", "gostaria de uma pizza portuguesa", "fazer pedido"],
+      "responses": ["Perfeito! Temos pizzas deliciosas disponíveis. Qual sabor você gostaria?", "Claro! Que sabor de pizza você prefere? Temos margherita, calabresa, portuguesa, pepperoni e muito mais!", "Ótima escolha! Qual o sabor e tamanho da pizza que você deseja?", "Vou adorar ajudar com seu pedido! Que pizza você tem em mente?"]
+    },
+    {
+      "tag": "itens_disponiveis",
+      "patterns": ["que pizzas vocês tem", "quais sabores", "cardápio", "que tem disponível", "mostrar pizzas", "lista de pizzas", "sabores disponíveis", "menu", "o que vocês vendem", "quais as opções", "tipos de pizza", "sabores que vocês fazem", "qual pizza tem", "opções de sabor", "me mostra o cardápio", "ver cardápio", "opções"],
+      "responses": ["Nossos sabores disponíveis são:\n🍕 Margherita - R$ 35,00\n🍕 Calabresa - R$ 38,00\n🍕 Portuguesa - R$ 42,00\n🍕 Pepperoni - R$ 40,00\n🍕 Quatro Queijos - R$ 45,00\n🍕 Frango Catupiry - R$ 43,00", "Temos um cardápio delicioso:\n• Margherita (tomate, mussarela, manjericão) - R$ 35,00\n• Calabresa (calabresa, cebola, mussarela) - R$ 38,00\n• Portuguesa (presunto, ovo, mussarela) - R$ 42,00\n• Pepperoni (pepperoni, mussarela) - R$ 40,00", "Aqui estão nossas pizzas especiais:\n🍕 Margherita, Calabresa, Portuguesa, Pepperoni, Quatro Queijos e Frango Catupiry. Todas feitas com ingredientes frescos!", "Nosso menu inclui: Margherita (R$ 35), Calabresa (R$ 38), Portuguesa (R$ 42), Pepperoni (R$ 40), Quatro Queijos (R$ 45) e Frango Catupiry (R$ 43)."]
+    },
+    {
+      "tag": "precos",
+      "patterns": ["quanto custa", "qual o preço", "valor da pizza", "preço", "quanto é", "valor", "custa quanto", "preço da margherita", "valor da calabresa", "quanto custa a portuguesa", "preço do pepperoni", "valores das pizzas", "tabela de preços", "quanto fica", "qual o valor da pizza", "preços", "custam"],
+      "responses": ["Nossos preços são:\n• Margherita: R$ 35,00\n• Calabresa: R$ 38,00\n• Portuguesa: R$ 42,00\n• Pepperoni: R$ 40,00\n• Quatro Queijos: R$ 45,00\n• Frango Catupiry: R$ 43,00", "As pizzas custam entre R$ 35,00 e R$ 45,00. Qual sabor você gostaria de saber o preço específico?", "Temos preços justos! A mais barata é a Margherita por R$ 35,00 e a mais cara é a Quatro Queijos por R$ 45,00.", "Os valores variam: Margherita R$ 35, Calabresa R$ 38, Portuguesa R$ 42, Pepperoni R$ 40, Quatro Queijos R$ 45, Frango Catupiry R$ 43."]
+    },
+    {
+      "tag": "tempo_entrega",
+      "patterns": ["quanto tempo para entregar", "demora quanto", "tempo de entrega", "quando chega", "em quanto tempo fica pronto", "prazo de entrega", "quanto tempo demora", "quando vai chegar", "tempo para fazer", "demora muito", "é rápido", "entrega em quanto tempo", "qual o prazo", "tempo de preparo", "quando fica pronto", "entrega"],
+      "responses": ["O tempo de entrega é de 30 a 45 minutos, dependendo da sua localização.", "Preparamos sua pizza com carinho em cerca de 30-45 minutos!", "Nossa entrega é rápida! Entre 30 a 45 minutos sua pizza estará aí.", "O prazo de entrega é de aproximadamente 35 minutos. Vale a pena esperar!"]
+    },
+    {
+      "tag": "agradecimento",
+      "patterns": ["obrigado", "obrigada", "valeu", "obrigadão", "brigado", "muito obrigado", "agradecido", "thanks", "vlw", "valeu mesmo", "obrigado pela ajuda", "muito grato", "agradeço", "obrigadíssimo", "obrigado pelo atendimento", "brigadão"],
+      "responses": ["De nada! Foi um prazer ajudar. Volte sempre à Pizzaria Delícia!", "Fico feliz em ajudar! Esperamos você novamente em breve.", "Por nada! Obrigado por escolher nossa pizzaria. Até logo!", "Sempre às ordens! Que sua pizza seja deliciosa!"]
+    },
+    {
+      "tag": "reclamacao",
+      "patterns": ["pizza veio fria", "demorou muito", "atendimento ruim", "reclamar", "pizza veio errada", "não gostei", "problema com pedido", "pizza queimada", "insatisfeito", "pizza sem sabor", "muito salgada", "entrega atrasada", "motoboy mal educado", "pizza crua", "não era o que pedi", "reclamação", "problema", "ruim"],
+      "responses": ["Sinto muito pelo inconveniente! Por favor, nos conte mais detalhes para que possamos resolver rapidamente.", "Pedimos desculpas pela experiência ruim. Entre em contato conosco para resolvermos essa situação.", "Lamentamos muito! Vamos investigar o que aconteceu e garantir que isso não se repita.", "Suas observações são muito importantes para nós. Vamos melhorar nosso serviço!"]
+    },
+    {
+      "tag": "despedida",
+      "patterns": ["tchau", "até logo", "bye", "falou", "até mais", "tenho que ir", "vou indo", "até a próxima", "adeus", "nos vemos", "até breve", "flw", "até", "xau", "vou desligar", "até outra hora", "fui"],
+      "responses": ["Até logo! Obrigado por visitar a Pizzaria Delícia. Volte sempre!", "Tchau! Esperamos você novamente para mais pizzas deliciosas!", "Até mais! Foi ótimo conversar com você. Bom apetite!", "Até a próxima! Que tenha um excelente dia!"]
+    }
+  ]
+}

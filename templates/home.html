@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIZZARIA DO WILL - Chatbot</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            margin: 0;
+            min-height: 100vh;
+        }
+        .main-content {
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            padding: 40px 32px 32px 32px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header img {
+            width: 60px;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            color: #ff6b6b;
+            margin: 0;
+        }
+        .section {
+            margin-top: 32px;
+        }
+        .section h2 {
+            color: #ff6b6b;
+            margin-bottom: 12px;
+        }
+        .menu-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+        .menu-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .menu-item h3 {
+            margin: 0 0 8px 0;
+            color: #ff6b6b;
+        }
+        .menu-item p {
+            margin: 0;
+            color: #333;
+        }
+        .contact-info {
+            margin-top: 18px;
+            font-size: 1.1rem;
+        }
+        /* Chatbot Widget */
+        .chatbot-widget {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 9999;
+        }
+        .chatbot-toggle {
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chatbot-container {
+            display: none;
+            flex-direction: column;
+            width: 350px;
+            height: 480px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .chatbot-header {
+            background: #ff6b6b;
+            color: #fff;
+            padding: 16px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .chatbot-messages {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+        .chatbot-input {
+            display: flex;
+            padding: 12px;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            outline: none;
+        }
+        .chatbot-input button {
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 18px;
+            margin-left: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .chatbot-message {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .chatbot-message.user .chatbot-message-content {
+            background: #ff6b6b;
+            color: #fff;
+            margin-left: auto;
+        }
+        .chatbot-message.bot .chatbot-message-content {
+            background: #e9ecef;
+            color: #333;
+            margin-right: auto;
+        }
+        .chatbot-message-content {
+            max-width: 70%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            word-wrap: break-word;
+        }
+        .chatbot-info {
+            font-size: 0.85rem;
+            margin-top: 4px;
+            padding: 6px 10px;
+            background: #fff3cd;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                max-width: 98vw;
+                padding: 18px 4vw;
+            }
+            .chatbot-widget {
+                right: 12px;
+                bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <!-- Banner principal -->
+        <div style="width:100%;margin-bottom:32px;">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80" alt="Banner Pizza" style="width:100%;border-radius:20px;max-height:320px;object-fit:cover;">
+        </div>
+        <div class="header">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Logo Pizza">
+            <h1>PIZZARIA DO WILL</h1>
+        </div>
+        <!-- Galeria de imagens -->
+        <div class="section">
+            <h2>Ambiente & Especialidades</h2>
+            <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+                <img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&w=400" alt="Pizza 1" style="width:220px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <img src="https://images.pexels.com/photos/1435907/pexels-photo-1435907.jpeg?auto=compress&w=400" alt="Pizza 2" style="width:220px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&w=400" alt="Ambiente" style="width:220px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            </div>
+        </div>
+        <!-- Cardápio com ícones -->
+        <div class="section">
+            <h2>Cardápio</h2>
+            <div class="menu-list">
+                <div class="menu-item">
+                    <h3>🍅 Margherita</h3>
+                    <p>Tomate, mussarela, manjericão<br>R$ 35,00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🌭 Calabresa</h3>
+                    <p>Calabresa, cebola, mussarela<br>R$ 38,00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🥚 Portuguesa</h3>
+                    <p>Presunto, ovo, mussarela<br>R$ 42,00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🍕 Pepperoni</h3>
+                    <p>Pepperoni, mussarela<br>R$ 40,00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🧀 Quatro Queijos</h3>
+                    <p>Mussarela, provolone, gorgonzola, parmesão<br>R$ 45,00</p>
+                </div>
+                <div class="menu-item">
+                    <h3>🍗 Frango Catupiry</h3>
+                    <p>Frango, catupiry, mussarela<br>R$ 43,00</p>
+                </div>
+            </div>
+        </div>
+        <!-- Depoimentos -->
+        <div class="section">
+            <h2>Depoimentos</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
+                <div style="background:#f8f9fa;padding:18px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                    <strong>Maria S.</strong><br>
+                    <span style="color:#ff6b6b;">★★★★★</span><br>
+                    "Melhor pizza da cidade! Atendimento rápido e ambiente super agradável."
+                </div>
+                <div style="background:#f8f9fa;padding:18px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                    <strong>João P.</strong><br>
+                    <span style="color:#ff6b6b;">★★★★★</span><br>
+                    "O chatbot facilitou muito meu pedido, recomendo demais!"
+                </div>
+                <div style="background:#f8f9fa;padding:18px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                    <strong>Fernanda R.</strong><br>
+                    <span style="color:#ff6b6b;">★★★★★</span><br>
+                    "Cardápio variado e pizzas deliciosas. Voltarei sempre!"
+                </div>
+            </div>
+        </div>
+        <!-- Contato -->
+        <div class="section">
+            <h2>Contato</h2>
+            <div class="contact-info">
+                <strong>Endereço:</strong> Av. das Pizzas, 123 - Centro<br>
+                <strong>Telefone:</strong> (11) 99999-9999<br>
+                <strong>Horário:</strong> Todos os dias, 18h às 23h
+            </div>
+        </div>
+        <!-- Rodapé -->
+        <div style="margin-top:40px;text-align:center;color:#888;font-size:1rem;">
+            <hr style="margin-bottom:18px;">
+            <div>
+                Siga-nos:
+                <a href="#" style="margin:0 8px;color:#ff6b6b;text-decoration:none;font-size:1.3rem;">Instagram</a>
+                <a href="#" style="margin:0 8px;color:#ff6b6b;text-decoration:none;font-size:1.3rem;">Facebook</a>
+                <a href="#" style="margin:0 8px;color:#ff6b6b;text-decoration:none;font-size:1.3rem;">WhatsApp</a>
+            </div>
+            <div style="margin-top:8px;">&copy; 2025 PIZZARIA DO WILL. Todos os direitos reservados.</div>
+        </div>
+    </div>
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget">
+        <button class="chatbot-toggle" id="chatbotToggle" title="Abrir Chatbot">🍕</button>
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">🍕 PIZZARIA DO WILL - Chatbot</div>
+            <div class="chatbot-messages" id="cbMessages">
+                <div class="chatbot-message bot">
+                    <div class="chatbot-message-content">
+                        Olá! Bem-vindo à PIZZARIA DO WILL! 🍕<br>
+                        Como posso ajudá-lo hoje? Você pode me perguntar sobre nosso cardápio, preços, fazer pedidos ou qualquer outra coisa!
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="cbInput" placeholder="Digite sua mensagem...">
+                <button id="cbSend">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Chatbot Widget Logic
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const cbMessages = document.getElementById('cbMessages');
+        const cbInput = document.getElementById('cbInput');
+        const cbSend = document.getElementById('cbSend');
+        let chatbotOpen = false;
+
+        chatbotToggle.onclick = function() {
+            chatbotOpen = !chatbotOpen;
+            chatbotContainer.style.display = chatbotOpen ? 'flex' : 'none';
+        };
+        // Close chatbot when clicking outside
+        document.addEventListener('click', function(e) {
+            if (chatbotOpen && !chatbotContainer.contains(e.target) && e.target !== chatbotToggle) {
+                chatbotContainer.style.display = 'none';
+                chatbotOpen = false;
+            }
+        });
+        function addCbMessage(content, isUser = false, intent = null, probability = null) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `chatbot-message ${isUser ? 'user' : 'bot'}`;
+            let infoHtml = '';
+            if (!isUser && intent && probability !== null) {
+                let probClass = 'probability-low';
+                if (probability >= 70) probClass = 'probability-high';
+                else if (probability >= 40) probClass = 'probability-medium';
+                infoHtml = `<div class='chatbot-info'><strong>Intenção:</strong> ${intent}<br><strong>Confiança:</strong> <span class='${probClass}'>${probability}%</span></div>`;
+            }
+            msgDiv.innerHTML = `<div class="chatbot-message-content">${content.replace(/\n/g, '<br>')}</div>${infoHtml}`;
+            cbMessages.appendChild(msgDiv);
+            cbMessages.scrollTop = cbMessages.scrollHeight;
+        }
+        async function sendCbMessage() {
+            const msg = cbInput.value.trim();
+            if (!msg) return;
+            addCbMessage(msg, true);
+            cbInput.value = '';
+            cbSend.disabled = true;
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: msg })
+                });
+                const data = await response.json();
+                setTimeout(() => {
+                    if (response.ok) {
+                        addCbMessage(data.response, false, data.intent, data.probability);
+                    } else {
+                        addCbMessage('Desculpe, houve um erro. Tente novamente.', false);
+                    }
+                    cbSend.disabled = false;
+                    cbInput.focus();
+                }, 800);
+            } catch (error) {
+                addCbMessage('Erro de conexão. Verifique sua internet e tente novamente.', false);
+                cbSend.disabled = false;
+                cbInput.focus();
+            }
+        }
+        cbSend.onclick = sendCbMessage;
+        cbInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendCbMessage();
+        });
+    </script>
+</body>
+</html>
