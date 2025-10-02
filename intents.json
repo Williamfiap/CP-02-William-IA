@@ -2,43 +2,293 @@
   "intents": [
     {
       "tag": "cumprimento",
-      "patterns": ["olá", "oi", "eai", "bom dia", "boa tarde", "boa noite", "hey", "hello", "opa", "salve", "fala aí", "e aí cara", "oi tudo bem", "oii", "oie", "oiii", "olá pessoal"],
-      "responses": ["Olá! Bem-vindo à Pizzaria Delícia! Como posso ajudá-lo hoje?", "Oi! Que bom ter você aqui! O que gostaria de pedir?", "Olá! Pronto para uma pizza deliciosa? Como posso ajudar?", "Bem-vindo! Estou aqui para ajudar com seu pedido. O que deseja?"]
+      "patterns": [
+        "olá", "oi", "eai", "bom dia", "boa tarde", "boa noite", "hey", "hello", "opa", "salve", "fala aí", "e aí cara", "oi tudo bem", "oii", "oie", "oiii", "olá pessoal", "konnichiwa", "konbanwa", "ohayo",
+        "como vai", "tudo bem", "tudo certo", "beleza", "fala", "oi pessoal", "oie gente", "e aí galera", "salve rapaziada", "oi gente", "olá amigos", "eae mano", "fala meu brother", "oi amor", "oi querido",
+        "bom dia pessoal", "boa tarde galera", "boa noite família", "good morning", "good afternoon", "good evening", "hi there", "what's up", "howdy", "greetings", "sup", "yo",
+        "buenas", "hola", "bonjour", "guten tag", "ciao", "namaste", "shalom", "aloha", "habari", "sawubona"
+      ],
+      "responses": [
+        "Irasshaimase! Bem-vindo ao Will Japanese Restaurant! Como posso ajudá-lo hoje?",
+        "Konnichiwa! Que bom ter você aqui! O que gostaria de pedir do nosso cardápio japonês?", 
+        "Olá! Pronto para uma experiência gastronômica japonesa única? Como posso ajudar?",
+        "Bem-vindo ao nosso restaurante japonês! Estou aqui para ajudar com seu pedido. O que deseja?",
+        "Oi! Que alegria recebê-lo! Nossos pratos japoneses estão fresquinhos hoje. O que te interessa?",
+        "Olá! Seja muito bem-vindo(a)! Está com vontade de que tipo de comida japonesa hoje?",
+        "E aí! Pronto para se deliciar com nossos sabores autênticos do Japão?",
+        "Oi! Nosso chef acabou de preparar pratos incríveis. Quer conhecer nossas especialidades?",
+        "Konnichiwa! Hoje temos promoções especiais. Posso te contar mais sobre nosso cardápio?",
+        "Olá! Bem-vindo à melhor experiência japonesa da cidade! Como posso tornar seu dia mais gostoso?"
+      ]
     },
     {
       "tag": "compra",
-      "patterns": ["quero comprar uma pizza", "gostaria de pedir", "quero uma pizza", "pode me vender", "vou querer", "preciso de uma pizza", "quero fazer um pedido", "gostaria de comprar", "me vende uma pizza", "quero pedir uma pizza margherita", "vou pedir uma calabresa", "preciso de uma pizza grande", "quero uma pizza media", "pode fazer uma pizza", "quero uma pizza de pepperoni", "gostaria de uma pizza portuguesa", "fazer pedido"],
-      "responses": ["Perfeito! Temos pizzas deliciosas disponíveis. Qual sabor você gostaria?", "Claro! Que sabor de pizza você prefere? Temos margherita, calabresa, portuguesa, pepperoni e muito mais!", "Ótima escolha! Qual o sabor e tamanho da pizza que você deseja?", "Vou adorar ajudar com seu pedido! Que pizza você tem em mente?"]
+      "patterns": [
+        "quero comprar", "gostaria de pedir", "quero sushi", "pode me vender", "vou querer", "preciso de", "quero fazer um pedido", "gostaria de comprar", "me vende", "quero pedir salmão", "vou pedir atum", "preciso de um combinado", "quero temaki", "pode fazer yakissoba", "quero sushi de salmão", "gostaria de um hot roll", "fazer pedido", "quero philadelphia", "vou querer califórnia", "preciso de udon", "quero combo", "pedir sashimi",
+        "me dá", "eu quero", "pode trazer", "vou levar", "me traz", "preciso", "gostaria", "queria", "poderia", "será que tem", "tem como fazer", "dá pra fazer", "quero encomendar", "vou encomendar", "fazer encomenda",
+        "estou com fome", "to com fome", "quero comer", "vou comer", "bora comer", "vamos comer", "fome", "faminto", "morrendo de fome", "to faminto", "quero me alimentar", "preciso comer",
+        "delivery", "entrega", "pra viagem", "para viagem", "take away", "balcão", "retirar", "buscar", "pegar no local", "comer aqui", "no local", "mesa", "reserva",
+        "quanto fica", "quanto custa", "valor", "preço", "custo", "orçamento", "pode calcular", "me fala o preço", "quanto dá", "qual o valor", "precificação"
+      ],
+      "responses": [
+        "Perfeito! Temos pratos japoneses deliciosos disponíveis. Que tipo de prato você gostaria? Sushi, temaki, combinado ou yakissoba?",
+        "Claro! Que prato japonês você prefere? Temos sushis frescos, temakis especiais, combinados e pratos quentes!",
+        "Ótima escolha! Qual prato e tamanho você deseja? Nossos sushis são preparados na hora!",
+        "Vou adorar ajudar com seu pedido! Que delícia japonesa você tem em mente?",
+        "Maravilha! Nosso cardápio tem opções incríveis. Prefere algo mais tradicional ou inovador?",
+        "Que bom! Você quer algo leve como sushis ou mais substancioso como yakissoba?",
+        "Excelente! Posso sugerir nossos pratos mais populares ou você já sabe o que quer?",
+        "Perfeito! Hoje temos ingredientes super frescos. Que tipo de sabor está procurando?",
+        "Ótimo! Prefere montar seu próprio combo ou quer uma sugestão do chef?",
+        "Que alegria! Vou te ajudar a escolher algo delicioso. Conta pra mim: doce, salgado, picante?"
+      ]
     },
     {
       "tag": "itens_disponiveis",
-      "patterns": ["que pizzas vocês tem", "quais sabores", "cardápio", "que tem disponível", "mostrar pizzas", "lista de pizzas", "sabores disponíveis", "menu", "o que vocês vendem", "quais as opções", "tipos de pizza", "sabores que vocês fazem", "qual pizza tem", "opções de sabor", "me mostra o cardápio", "ver cardápio", "opções"],
-      "responses": ["Nossos sabores disponíveis são:\n🍕 Margherita - R$ 35,00\n🍕 Calabresa - R$ 38,00\n🍕 Portuguesa - R$ 42,00\n🍕 Pepperoni - R$ 40,00\n🍕 Quatro Queijos - R$ 45,00\n🍕 Frango Catupiry - R$ 43,00", "Temos um cardápio delicioso:\n• Margherita (tomate, mussarela, manjericão) - R$ 35,00\n• Calabresa (calabresa, cebola, mussarela) - R$ 38,00\n• Portuguesa (presunto, ovo, mussarela) - R$ 42,00\n• Pepperoni (pepperoni, mussarela) - R$ 40,00", "Aqui estão nossas pizzas especiais:\n🍕 Margherita, Calabresa, Portuguesa, Pepperoni, Quatro Queijos e Frango Catupiry. Todas feitas com ingredientes frescos!", "Nosso menu inclui: Margherita (R$ 35), Calabresa (R$ 38), Portuguesa (R$ 42), Pepperoni (R$ 40), Quatro Queijos (R$ 45) e Frango Catupiry (R$ 43)."]
+      "patterns": [
+        "que sushis vocês tem", "quais sabores", "cardápio", "que tem disponível", "mostrar pratos", "lista de sushis", "sabores disponíveis", "menu", "o que vocês vendem", "quais as opções", "tipos de sushi", "sabores que vocês fazem", "qual prato tem", "opções de sabor", "me mostra o cardápio", "ver cardápio", "opções", "temaki", "yakissoba", "combinado", "sashimi", "udon",
+        "catálogo", "catalogo", "lista", "relação", "variedades", "tipos", "especialidades", "pratos especiais", "novidades", "lançamentos", "promoções", "ofertas", "combos", "kits",
+        "o que tem", "que tem pra hoje", "que vocês fazem", "o que fazem", "que comida tem", "comidas", "pratos", "refeições", "lanches", "petiscos", "aperitivos", "sobremesas",
+        "sushi", "sashimi", "temaki", "yakissoba", "udon", "ramen", "missoshiru", "gyoza", "tempura", "teriyaki", "california", "philadelphia", "hot roll", "joe", "skin", "gunkan",
+        "vegetariano", "vegano", "sem glúten", "diet", "light", "fitness", "saudável", "natural", "orgânico", "especial", "premium", "gourmet", "tradicional", "clássico", "moderno"
+      ],
+      "responses": [
+        "Nosso cardápio japonês completo:\n\n🍣 SUSHIS TRADICIONAIS\n• Salmão - R$ 18,00 (8 peças)\n• Atum - R$ 20,00 (8 peças)\n• Kani - R$ 15,00 (8 peças)\n• Philadelphia - R$ 25,00 (8 peças)\n\n🍙 TEMAKIS ESPECIAIS\n• Salmão Grelhado - R$ 22,00\n• Hot Philadelphia - R$ 28,00\n• Califórnia - R$ 24,00\n• Atum Spicy - R$ 26,00\n\n🍜 PRATOS QUENTES\n• Yakissoba - R$ 35,00\n• Udon - R$ 32,00\n• Teriyaki Chicken - R$ 38,00\n\n🍱 COMBINADOS\n• Combo Salmão (20 peças) - R$ 65,00\n• Combo Misto (30 peças) - R$ 85,00\n• Combo Família (50 peças) - R$ 120,00",
+        "Temos um cardápio japonês autêntico:\n🍣 Sushis frescos: Salmão, Atum, Kani, Philadelphia\n🍙 Temakis especiais: Hot Roll, Califórnia, Salmão Grelhado\n🍜 Pratos quentes: Yakissoba, Udon, Teriyaki\n🍱 Combinados para compartilhar\n\nTodos preparados com ingredientes frescos e técnicas tradicionais!",
+        "Aqui estão nossas especialidades japonesas:\n🍣 Sushis tradicionais e especiais\n🍙 Temakis crocantes e saborosos\n🍜 Pratos quentes como Yakissoba e Udon\n🍱 Combinados perfeitos para família\n\nTudo preparado por nosso sushiman experiente!",
+        "Nosso menu inclui: Sushis (R$ 15-25), Temakis (R$ 22-28), Pratos Quentes (R$ 32-38) e Combinados (R$ 65-120). Que tipo de prato japonês você prefere?",
+        "Hoje temos especialidades incríveis! Nossos sushis são feitos com peixes frescos do mercado, temakis crocantes e yakissoba no ponto perfeito. Quer conhecer algo específico?",
+        "Nossa carta tem desde o clássico sushi de salmão até criações exclusivas do chef! Também temos opções vegetarianas e sem glúten. O que mais te interessa?",
+        "Cardápio completo disponível! Trabalhamos com ingredientes premium: salmão chileno, atum yellowfin, cream cheese Philadelphia original. Posso detalhar algum prato?",
+        "Temos 4 categorias principais: Sushis tradicionais, Temakis especiais, Pratos quentes e Combinados. Cada um com várias opções deliciosas! Por onde começamos?"
+      ]
     },
     {
       "tag": "precos",
-      "patterns": ["quanto custa", "qual o preço", "valor da pizza", "preço", "quanto é", "valor", "custa quanto", "preço da margherita", "valor da calabresa", "quanto custa a portuguesa", "preço do pepperoni", "valores das pizzas", "tabela de preços", "quanto fica", "qual o valor da pizza", "preços", "custam"],
-      "responses": ["Nossos preços são:\n• Margherita: R$ 35,00\n• Calabresa: R$ 38,00\n• Portuguesa: R$ 42,00\n• Pepperoni: R$ 40,00\n• Quatro Queijos: R$ 45,00\n• Frango Catupiry: R$ 43,00", "As pizzas custam entre R$ 35,00 e R$ 45,00. Qual sabor você gostaria de saber o preço específico?", "Temos preços justos! A mais barata é a Margherita por R$ 35,00 e a mais cara é a Quatro Queijos por R$ 45,00.", "Os valores variam: Margherita R$ 35, Calabresa R$ 38, Portuguesa R$ 42, Pepperoni R$ 40, Quatro Queijos R$ 45, Frango Catupiry R$ 43."]
+      "patterns": [
+        "quanto custa", "qual o preço", "valor do sushi", "preço", "quanto é", "valor", "custa quanto", "preço do salmão", "valor do atum", "quanto custa o combinado", "preço do temaki", "valores dos pratos", "tabela de preços", "quanto fica", "qual o valor", "preços", "custam", "valor yakissoba", "preço udon",
+        "orçamento", "budget", "grana", "dinheiro", "custo", "investimento", "gasto", "despesa", "conta", "fatura", "ticket", "nota", "precificação", "cotação",
+        "barato", "caro", "em conta", "acessível", "promocional", "desconto", "oferta", "promoção", "pechincha", "liquidação", "queima", "black friday",
+        "forma de pagamento", "cartão", "dinheiro", "pix", "débito", "crédito", "parcelado", "à vista", "prazo", "financiamento", "entrada", "parcelas"
+      ],
+      "responses": [
+        "Nossos preços são:\n\n🍣 SUSHIS (8 peças):\n• Salmão: R$ 18,00\n• Atum: R$ 20,00\n• Kani: R$ 15,00\n• Philadelphia: R$ 25,00\n\n🍙 TEMAKIS:\n• Salmão Grelhado: R$ 22,00\n• Hot Philadelphia: R$ 28,00\n• Califórnia: R$ 24,00\n• Atum Spicy: R$ 26,00\n\n🍜 PRATOS QUENTES:\n• Yakissoba: R$ 35,00\n• Udon: R$ 32,00\n• Teriyaki: R$ 38,00\n\n🍱 COMBINADOS:\n• Combo Salmão: R$ 65,00\n• Combo Misto: R$ 85,00\n• Combo Família: R$ 120,00",
+        "Os preços variam de R$ 15,00 a R$ 120,00. Qual prato específico você gostaria de saber o preço?",
+        "Temos preços justos! O mais barato é o Sushi de Kani por R$ 15,00 e nosso Combo Família por R$ 120,00 serve até 4 pessoas.",
+        "Valores: Sushis R$ 15-25, Temakis R$ 22-28, Pratos Quentes R$ 32-38, Combinados R$ 65-120. Todos com ingredientes premium!",
+        "Nossos preços são competitivos! Aceitamos dinheiro, cartão de débito/crédito e PIX. Qual forma de pagamento prefere?",
+        "Temos opções para todos os bolsos! Desde o sushi individual até combo família. Quer montar algo dentro do seu orçamento?",
+        "Preços honestos com qualidade garantida! Também temos promoções especiais durante a semana. Posso te contar sobre elas?",
+        "Investimento que vale a pena! Ingredientes frescos, preparo artesanal e sabor autêntico. Qual seu budget para hoje?"
+      ]
     },
     {
       "tag": "tempo_entrega",
-      "patterns": ["quanto tempo para entregar", "demora quanto", "tempo de entrega", "quando chega", "em quanto tempo fica pronto", "prazo de entrega", "quanto tempo demora", "quando vai chegar", "tempo para fazer", "demora muito", "é rápido", "entrega em quanto tempo", "qual o prazo", "tempo de preparo", "quando fica pronto", "entrega"],
-      "responses": ["O tempo de entrega é de 30 a 45 minutos, dependendo da sua localização.", "Preparamos sua pizza com carinho em cerca de 30-45 minutos!", "Nossa entrega é rápida! Entre 30 a 45 minutos sua pizza estará aí.", "O prazo de entrega é de aproximadamente 35 minutos. Vale a pena esperar!"]
+      "patterns": [
+        "quanto tempo para entregar", "demora quanto", "tempo de entrega", "quando chega", "em quanto tempo fica pronto", "prazo de entrega", "quanto tempo demora", "quando vai chegar", "tempo para fazer", "demora muito", "é rápido", "entrega em quanto tempo", "qual o prazo", "tempo de preparo", "quando fica pronto", "entrega",
+        "delivery", "rapidez", "agilidade", "velocidade", "pressa", "urgência", "emergência", "rápido", "devagar", "lento", "demorado", "demora", "espera", "aguardo",
+        "cronômetro", "relógio", "horário", "agenda", "compromisso", "reunião", "pressa", "correria", "rush", "time", "deadline", "limite", "prazo final",
+        "hoje", "agora", "já", "imediatamente", "na hora", "instantâneo", "express", "turbo", "flash", "speed", "jet", "ultra"
+      ],
+      "responses": [
+        "O tempo de entrega é de 40 a 60 minutos, pois preparamos tudo fresco na hora!",
+        "Preparamos seus sushis com técnica tradicional em cerca de 45-60 minutos. A qualidade vale a espera!",
+        "Nossa entrega é cuidadosa! Entre 40 a 60 minutos seus pratos japoneses frescos estarão aí.",
+        "O prazo de entrega é de aproximadamente 50 minutos. Nosso sushiman prepara tudo com perfeição!",
+        "Demora entre 40-60 minutos porque fazemos tudo na hora! Sushi fresco não pode ser apressado.",
+        "Tempo médio: 50 minutos. Inclui preparo artesanal + tempo de entrega. Vale cada minuto de espera!",
+        "Entre 40-60 min dependendo da distância. Priorizamos a qualidade sobre a velocidade!",
+        "Cerca de 1 hora. Nosso chef não corta caminho na qualidade! Fresquinho chegando aí."
+      ]
     },
     {
       "tag": "agradecimento",
-      "patterns": ["obrigado", "obrigada", "valeu", "obrigadão", "brigado", "muito obrigado", "agradecido", "thanks", "vlw", "valeu mesmo", "obrigado pela ajuda", "muito grato", "agradeço", "obrigadíssimo", "obrigado pelo atendimento", "brigadão"],
-      "responses": ["De nada! Foi um prazer ajudar. Volte sempre à Pizzaria Delícia!", "Fico feliz em ajudar! Esperamos você novamente em breve.", "Por nada! Obrigado por escolher nossa pizzaria. Até logo!", "Sempre às ordens! Que sua pizza seja deliciosa!"]
+      "patterns": [
+        "obrigado", "obrigada", "valeu", "obrigadão", "brigado", "muito obrigado", "agradecido", "thanks", "vlw", "valeu mesmo", "obrigado pela ajuda", "muito grato", "agradeço", "obrigadíssimo", "obrigado pelo atendimento", "brigadão", "arigato", "domo arigato",
+        "thank you", "merci", "gracias", "danke", "grazie", "spasibo", "xie xie", "dhanyawad", "shukran", "toda", "asante", "salamat",
+        "perfeito", "excelente", "ótimo", "maravilhoso", "fantástico", "sensacional", "top", "show", "legal", "bacana", "massa", "demais",
+        "satisfeito", "contente", "feliz", "alegre", "grato", "reconhecido", "tocado", "emocionado"
+      ],
+      "responses": [
+        "Dōitashimashite! Foi um prazer ajudar. Volte sempre ao Will Japanese Restaurant!",
+        "Fico feliz em ajudar! Esperamos você novamente para mais delícias japonesas em breve.",
+        "Por nada! Obrigado por escolher nosso restaurante japonês. Mata ne! (Até logo!)",
+        "Sempre às ordens! Que seus pratos japoneses sejam oishii (deliciosos)!",
+        "Que bom que pude ajudar! Sua satisfação é nossa maior recompensa!",
+        "Foi um prazer! Conte sempre conosco para suas experiências gastronômicas japonesas!",
+        "Disponha sempre! Estamos aqui para tornar sua refeição especial!",
+        "Muito obrigado pela confiança! Até a próxima visita ao nosso restaurante!"
+      ]
     },
     {
       "tag": "reclamacao",
-      "patterns": ["pizza veio fria", "demorou muito", "atendimento ruim", "reclamar", "pizza veio errada", "não gostei", "problema com pedido", "pizza queimada", "insatisfeito", "pizza sem sabor", "muito salgada", "entrega atrasada", "motoboy mal educado", "pizza crua", "não era o que pedi", "reclamação", "problema", "ruim"],
-      "responses": ["Sinto muito pelo inconveniente! Por favor, nos conte mais detalhes para que possamos resolver rapidamente.", "Pedimos desculpas pela experiência ruim. Entre em contato conosco para resolvermos essa situação.", "Lamentamos muito! Vamos investigar o que aconteceu e garantir que isso não se repita.", "Suas observações são muito importantes para nós. Vamos melhorar nosso serviço!"]
+      "patterns": [
+        "sushi veio frio", "demorou muito", "atendimento ruim", "reclamar", "pedido veio errado", "não gostei", "problema com pedido", "sushi mal feito", "insatisfeito", "sushi sem sabor", "muito salgado", "entrega atrasada", "motoboy mal educado", "sushi mole", "não era o que pedi", "reclamação", "problema", "ruim", "arroz grudento", "peixe sem qualidade",
+        "horrível", "péssimo", "terrível", "inaceitável", "inadmissível", "revoltante", "absurdo", "ridículo", "lamentável", "vergonhoso", "desastroso", "catastrófico",
+        "erro", "falha", "defeito", "bug", "glitch", "equívoco", "engano", "confusão", "bagunça", "zona", "caos", "desorganização",
+        "cancelar", "devolver", "estornar", "reembolso", "troca", "substituir", "refazer", "corrigir", "consertar", "resolver", "solucionar"
+      ],
+      "responses": [
+        "Gomen nasai! (Desculpe!) Lamentamos muito pelo inconveniente. Por favor, nos conte mais detalhes para resolvermos rapidamente.",
+        "Pedimos sinceras desculpas pela experiência ruim. Entre em contato conosco para resolvermos essa situação imediatamente.",
+        "Sumimasen! (Desculpe!) Vamos investigar o que aconteceu e garantir que isso não se repita. Sua satisfação é nossa prioridade.",
+        "Suas observações são muito importantes para mantermos a qualidade japonesa. Vamos melhorar nosso serviço!",
+        "Sinto muito mesmo! Isso não condiz com nosso padrão de qualidade. Podemos refazer seu pedido sem custo?",
+        "Que situação chata! Vamos resolver isso agora mesmo. Me passa mais detalhes para eu encaminhar para o gerente?",
+        "Desculpa total! Nossa equipe vai revisar todo o processo. Posso oferecer uma compensação pelo transtorno?",
+        "Não esperava isso do nosso restaurante! Vamos tomar providências imediatas. Como posso reparar isso?"
+      ]
     },
     {
       "tag": "despedida",
-      "patterns": ["tchau", "até logo", "bye", "falou", "até mais", "tenho que ir", "vou indo", "até a próxima", "adeus", "nos vemos", "até breve", "flw", "até", "xau", "vou desligar", "até outra hora", "fui"],
-      "responses": ["Até logo! Obrigado por visitar a Pizzaria Delícia. Volte sempre!", "Tchau! Esperamos você novamente para mais pizzas deliciosas!", "Até mais! Foi ótimo conversar com você. Bom apetite!", "Até a próxima! Que tenha um excelente dia!"]
+      "patterns": [
+        "tchau", "até logo", "bye", "falou", "até mais", "tenho que ir", "vou indo", "até a próxima", "adeus", "nos vemos", "até breve", "flw", "até", "xau", "vou desligar", "até outra hora", "fui", "sayonara", "mata ne",
+        "goodbye", "farewell", "see you", "catch you later", "talk to you later", "ttyl", "ciao", "au revoir", "auf wiedersehen", "hasta luego", "arrivederci", "do svidaniya",
+        "obrigado e tchau", "valeu, falou", "brigadão, até", "thanks, bye", "muito obrigado, até logo", "beleza, tchau", "show, falou", "perfeito, até mais"
+      ],
+      "responses": [
+        "Sayonara! Obrigado por visitar o Will Japanese Restaurant. Mata ne! (Até logo!)",
+        "Mata ne! Esperamos você novamente para mais delícias japonesas!",
+        "Até mais! Foi ótimo conversar com você. Itadakimasu! (Bom apetite!)",
+        "Sayonara! Que tenha um excelente dia e volte sempre!",
+        "Tchau! Foi um prazer atendê-lo! Até a próxima refeição japonesa!",
+        "Até logo! Que sua experiência seja oishii! (deliciosa!)",
+        "Falou! Esperamos você de volta em breve! Arigato!",
+        "Bye bye! Tenha um ótimo resto do dia! Mata ashita! (Até amanhã!)"
+      ]
+    },
+    {
+      "tag": "localizacao",
+      "patterns": [
+        "onde fica", "endereço", "localização", "como chegar", "onde vocês estão", "local", "lugar", "posição", "região", "bairro", "rua", "avenida", "número",
+        "gps", "maps", "waze", "google maps", "coordenadas", "cep", "código postal", "referência", "ponto de referência", "próximo de que", "perto de",
+        "distância", "longe", "perto", "pertinho", "do lado", "vizinho", "em frente", "atrás", "ao lado", "esquina"
+      ],
+      "responses": [
+        "Estamos localizados na Rua dos Samurais, 123 - Bairro Liberdade, São Paulo/SP. CEP: 01503-020",
+        "Nosso endereço é Rua dos Samurais, 123 - Liberdade. Bem no coração do bairro japonês!",
+        "Ficamos na Liberdade! Rua dos Samurais, 123. Fácil de chegar de metrô ou carro!",
+        "Endereço: Rua dos Samurais, 123 - Liberdade/SP. Próximo à estação Liberdade do metrô!",
+        "Estamos no centro da Liberdade! Rua dos Samurais, 123. Tem estacionamento na região!",
+        "Localização privilegiada na Liberdade! Rua dos Samurais, 123. Cerca de 200m do metrô!"
+      ]
+    },
+    {
+      "tag": "horario_funcionamento",
+      "patterns": [
+        "horário", "que horas", "funcionamento", "aberto", "fechado", "abre", "fecha", "funciona", "atendimento", "expediente",
+        "domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado", "final de semana", "feriado", "véspera",
+        "manhã", "tarde", "noite", "madrugada", "almoço", "jantar", "lanche", "café da manhã"
+      ],
+      "responses": [
+        "Funcionamos de Segunda a Quinta das 18h às 23h30, Sexta e Sábado das 18h à 00h30, e Domingo das 18h às 22h30!",
+        "Nosso horário é: Seg-Qui: 18h-23h30 | Sex-Sáb: 18h-00h30 | Dom: 18h-22h30",
+        "Estamos abertos todas as noites! Segunda a quinta até 23h30, fim de semana até mais tarde!",
+        "Horário de funcionamento: Abrimos sempre às 18h. Fechamento varia: 22h30 (dom), 23h30 (seg-qui), 00h30 (sex-sáb)!",
+        "Funcionamos no período noturno! Das 18h em diante todos os dias. Finais de semana ficamos até mais tarde!"
+      ]
+    },
+    {
+      "tag": "ingredientes_qualidade",
+      "patterns": [
+        "ingredientes", "qualidade", "fresco", "origem", "procedência", "de onde vem", "importado", "nacional", "orgânico", "natural",
+        "peixe", "salmão", "atum", "arroz", "alga", "nori", "wasabi", "shoyu", "gengibre", "cream cheese", "abacate", "pepino",
+        "alérgico", "alergia", "intolerância", "glúten", "lactose", "frutos do mar", "conservantes", "corantes", "aditivos",
+        "certificação", "anvisa", "vigilância sanitária", "selo", "garantia", "procedência", "rastreabilidade"
+      ],
+      "responses": [
+        "Trabalhamos apenas com ingredientes premium! Salmão fresco do Chile, atum importado, arroz japonês especial e nori de primeira qualidade!",
+        "Nossos peixes chegam frescos diariamente! Salmão chileno, atum yellowfin, todos com certificação sanitária e rastreabilidade completa!",
+        "Qualidade é nossa prioridade! Ingredientes selecionados: cream cheese Philadelphia original, wasabi importado, shoyu tradicional!",
+        "Temos certificações de qualidade! Todos os peixes passam por rigorosa inspeção. Arroz japonês premium e temperos autênticos!",
+        "100% frescos! Recebemos peixes toda manhã do CEAGESP. Temos opções para alérgicos e intolerantes também!",
+        "Ingredientes rastreados e certificados! Trabalhamos com fornecedores licenciados pela ANVISA. Qualidade garantida!"
+      ]
+    },
+    {
+      "tag": "promocoes_ofertas",
+      "patterns": [
+        "promoção", "oferta", "desconto", "cupom", "voucher", "deal", "black friday", "liquidação", "queima", "pechincha",
+        "barato", "em conta", "mais barato", "preço especial", "valor promocional", "combo promocional", "kit promoção",
+        "segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo", "hoje", "essa semana", "esse mês",
+        "aniversário", "inauguração", "festa", "comemoração", "celebração", "especial", "limitado", "exclusivo"
+      ],
+      "responses": [
+        "Temos promoções especiais! Terça-feira: 20% off em combos. Quinta-feira: Compre 2 temakis e ganhe 1 sushi!",
+        "Ofertas da semana: Segunda é dia do sushi (15% off), Quarta é combo família com desconto especial!",
+        "Promoção permanente: Acima de R$ 80 ganhe entrega grátis! E sempre temos surpresas para clientes fiéis!",
+        "Black Friday japonesa! Durante novembro: 25% off em pedidos acima de R$ 100. Não perca!",
+        "Happy Hour: Das 18h às 20h, todos os temakis com 10% de desconto! Válido de segunda a quinta!",
+        "Programa de fidelidade: A cada 10 pedidos, ganhe 1 combo grátis! Cadastre-se e economize!"
+      ]
+    },
+    {
+      "tag": "informacoes_nutricionais",
+      "patterns": [
+        "calorias", "calórico", "diet", "light", "fitness", "saudável", "saúde", "nutrição", "nutricional", "proteína", "carboidrato", "gordura",
+        "vegano", "vegetariano", "sem glúten", "sem lactose", "diabético", "hipertensão", "colesterol", "triglicérides",
+        "regime", "dieta", "emagrecer", "engordar", "massa muscular", "academia", "treino", "atleta", "esportista",
+        "vitamina", "mineral", "fibra", "ômega", "antioxidante", "natural", "orgânico", "integral"
+      ],
+      "responses": [
+        "Nossos sushis são super saudáveis! Rico em ômega-3, proteínas de alta qualidade e baixo em calorias. Perfeito para dietas!",
+        "Temos opções fit! Sushis sem arroz (sashimi), temakis com pepino no lugar do arroz, e pratos com baixo sódio!",
+        "Cardápio inclusivo! Opções veganas (pepino, abacate), sem glúten e sem lactose. Sempre identificadas no menu!",
+        "Informações nutricionais disponíveis! Sushi de salmão: ~40 kcal/peça. Combos com valores detalhados na entrega!",
+        "Alimentação balanceada! Peixes ricos em proteína magra, arroz integral disponível, vegetais frescos em todos os pratos!",
+        "Para atletas e fitness! Alto valor proteico, carboidratos de qualidade, gorduras boas. Ideal pós-treino!"
+      ]
+    },
+    {
+      "tag": "curiosidades_cultura",
+      "patterns": [
+        "japão", "japonês", "cultura", "tradição", "história", "origem", "tokyo", "tóquio", "osaka", "kyoto",
+        "samurai", "ninja", "geisha", "anime", "manga", "zen", "budismo", "xintoísmo", "ikebana", "origami",
+        "sushi", "sashimi", "tempura", "ramen", "miso", "sake", "wasabi", "soja", "nori", "chopsticks", "hashi",
+        "itadakimasu", "gochisousama", "kanpai", "arigato", "sayonara", "konnichiwa", "sumimasen", "gomen",
+        "curiosidade", "interessante", "legal", "bacana", "diferente", "único", "especial", "tradicional"
+      ],
+      "responses": [
+        "Curiosidade: O sushi surgiu como método de conservação do peixe! O arroz fermentado preservava o pescado por meses!",
+        "Sabia que wasabi verdadeiro é caríssimo? A maioria dos restaurantes usa raiz forte tingida de verde!",
+        "Tradição japonesa: Antes de comer, dizemos 'Itadakimasu' (eu recebo humildemente) e após 'Gochisousama' (obrigado pela refeição)!",
+        "No Japão, é comum comer sushi com as mãos! E nunca se mistura wasabi no shoyu - isso é desrespeitoso!",
+        "O peixe para sushi deve estar a -20°C por 7 dias para eliminar parasitas. Segurança em primeiro lugar!",
+        "Sushi master leva 10 anos para se formar! Começam lavando arroz por anos antes de tocar no peixe!"
+      ]
+    },
+    {
+      "tag": "forma_pagamento",
+      "patterns": [
+        "pagamento", "pagar", "cartão", "dinheiro", "pix", "débito", "crédito", "parcelado", "à vista", "entrada",
+        "visa", "mastercard", "elo", "amex", "american express", "diners", "hipercard", "ticket", "sodexo", "alelo",
+        "vale", "voucher", "cupom", "desconto", "cashback", "pontos", "milhas", "fidelidade", "programa",
+        "troco", "trocado", "nota", "moeda", "real", "reais", "centavos", "valor", "quantia"
+      ],
+      "responses": [
+        "Aceitamos todas as formas de pagamento! Dinheiro, PIX, cartão de débito/crédito (Visa, Master, Elo) e vale refeição!",
+        "Formas de pagamento: PIX (desconto de 5%), cartões (parcelamos até 3x sem juros), dinheiro e vale alimentação!",
+        "PIX é mais rápido e tem desconto! Também aceitamos cartões das principais bandeiras e vale refeição/alimentação!",
+        "Pagamento facilitado! PIX instantâneo, cartões com chip ou aproximação, e sempre temos troco se precisar!",
+        "Aceitos: PIX, débito, crédito, dinheiro, Ticket, Sodexo, Alelo. Parcelamento sem juros para compras acima de R$ 50!"
+      ]
+    },
+    {
+      "tag": "eventos_grupos",
+      "patterns": [
+        "festa", "evento", "aniversário", "casamento", "formatura", "confraternização", "reunião", "encontro", "celebração",
+        "grupo", "turma", "galera", "pessoal", "família", "amigos", "colegas", "equipe", "time", "empresa",
+        "reserva", "reservar", "mesa", "espaço", "local", "salão", "ambiente", "decoração", "organizar",
+        "catering", "buffet", "delivery", "entrega", "encomenda", "antecedência", "planejamento", "orçamento"
+      ],
+      "responses": [
+        "Organizamos eventos especiais! Temos combos para grupos, delivery para festas e até decoração temática japonesa!",
+        "Perfeito para confraternizações! Combos família servem bem grupos grandes, e fazemos orçamentos personalizados!",
+        "Eventos corporativos são nossa especialidade! Entrega pontual, embalagens especiais e cardápio executivo!",
+        "Festas de aniversário? Temos combos temáticos! Sushi cake, decoração japonesa e até aulas de como fazer sushi!",
+        "Para grupos grandes, fazemos preços especiais! Entre em contato com antecedência para planejamento completo!",
+        "Catering japonês! Levamos toda a experiência até seu evento. Chef, decoração e o melhor da culinária japonesa!"
+      ]
     }
   ]
 }

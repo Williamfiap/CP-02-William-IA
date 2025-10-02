@@ -20,44 +20,108 @@ except LookupError:
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-def extract_sabor(self, text):
-    """Extrai o sabor da pizza da frase, considerando variações e erros comuns."""
-    sabores = [
-        "calabresa", "calabreza", "calabresa simples", "calabresa tradicional", "calabresa com cebola",
-        "margherita", "marguerita", "margheritta", "margerita",
-        "pepperoni", "peperoni", "peperonni", "peperone",
-        "portuguesa", "portugueza", "portugesa", "portugesa tradicional",
-        "quatro queijos", "4 queijos", "quatro queijo", "quatro quejo", "quatro queijos especial",
-        "frango catupiry", "frango com catupiry", "frango catupiri", "frango catupry", "frango catupiry especial"
+def extract_prato(self, text):
+    """Extrai o prato japonês da frase, considerando variações e erros comuns."""
+    pratos = [
+        # Sushis
+        "salmão", "salmao", "salmon", "sake",
+        "atum", "tuna", "maguro",
+        "kani", "caranguejo", "surimi",
+        "philadelphia", "filadélfia", "cream cheese",
+        
+        # Temakis
+        "temaki", "temaki salmão", "temaki atum", "temaki kani",
+        "hot roll", "hot philadelphia", "hot", "hott",
+        "califórnia", "california", "california roll",
+        "atum spicy", "spicy tuna", "spicy",
+        "salmão grelhado", "salmao grelhado", "grilled salmon",
+        
+        # Pratos quentes
+        "yakissoba", "yakisoba", "yaki soba", "macarrão japonês",
+        "udon", "macarrão udon", "sopa udon",
+        "teriyaki", "teriyaki chicken", "frango teriyaki",
+        
+        # Combinados
+        "combo", "combinado", "combo salmão", "combo salmao",
+        "combo misto", "combo família", "combo familia",
+        "combo atum", "rodízio", "festival"
     ]
     text_lower = text.lower()
-    for sabor in sabores:
-        if sabor in text_lower:
-            return sabor
+    for prato in pratos:
+        if prato in text_lower:
+            return prato
     return None
 
 
-class PizzariaChatbotSimples:
+class RestauranteJaponesChatbotSimples:
     def __init__(self):
         self.intents = self.load_intents()
         self.stop_words = set(stopwords.words('portuguese'))
         # Adiciona algumas palavras em inglês também
         self.stop_words.update(['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by'])
 
-    def extract_sabor(self, text):
-        """Extrai o sabor da pizza da frase, considerando variações e erros comuns."""
-        sabores = [
-            "calabresa", "calabreza", "calabresa simples", "calabresa tradicional", "calabresa com cebola",
-            "margherita", "marguerita", "margheritta", "margerita",
-            "pepperoni", "peperoni", "peperonni", "peperone",
-            "portuguesa", "portugueza", "portugesa", "portugesa tradicional",
-            "quatro queijos", "4 queijos", "quatro queijo", "quatro quejo", "quatro queijos especial",
-            "frango catupiry", "frango com catupiry", "frango catupiri", "frango catupry", "frango catupiry especial"
+    def extract_prato(self, text):
+        """Extrai o prato japonês da frase, considerando variações e erros comuns."""
+        pratos = [
+            # Sushis tradicionais (ordem por especificidade)
+            "philadelphia", "filadélfia", "cream cheese philadelphia",
+            "sushi de salmão", "sushi salmão", "salmão", "salmao", "salmon", "sake",
+            "sushi de atum", "sushi atum", "atum", "tuna", "maguro",
+            "sushi de kani", "sushi kani", "kani", "caranguejo", "surimi",
+            
+            # Temakis especiais
+            "temaki hot philadelphia", "hot philadelphia", "hot roll",
+            "temaki salmão grelhado", "salmão grelhado", "salmao grelhado", "grilled salmon",
+            "temaki califórnia", "temaki california", "califórnia", "california", "california roll",
+            "temaki atum spicy", "atum spicy", "spicy tuna", "spicy",
+            "temaki salmão", "temaki salmao", 
+            "temaki atum", "temaki kani", "temaki",
+            
+            # Pratos quentes
+            "yakissoba de frango", "yakissoba frango", "yakissoba carne", "yakissoba misto",
+            "yakissoba", "yakisoba", "yaki soba", "macarrão japonês",
+            "udon de frango", "udon carne", "udon vegetariano", "udon",
+            "macarrão udon", "sopa udon",
+            "teriyaki chicken", "frango teriyaki", "chicken teriyaki", "teriyaki",
+            "ramen", "lamen", "missoshiru", "miso soup", "sopa de miso",
+            "gyoza", "guioza", "tempura", "tempora",
+            
+            # Combinados e especiais
+            "combo família", "combo familia", "combo family",
+            "combo salmão", "combo salmao", "combo salmon",
+            "combo misto", "combo mix", "combo variado",
+            "combo atum", "combo tuna",
+            "combo executivo", "combo especial", "combo premium",
+            "combinado", "combo", "rodízio", "festival",
+            
+            # Sashimi
+            "sashimi de salmão", "sashimi salmão", "sashimi salmao",
+            "sashimi de atum", "sashimi atum", "sashimi tuna",
+            "sashimi misto", "sashimi mix", "sashimi",
+            
+            # Gunkan e outros
+            "gunkan salmão", "gunkan atum", "gunkan ikura", "gunkan",
+            "joe salmão", "joe atum", "joe",
+            "skin salmão", "skin salmon", "skin",
+            
+            # Opções especiais
+            "vegetariano", "vegano", "vegan", "sem peixe", "sem carne",
+            "sem glúten", "diet", "light", "fitness"
         ]
+        
         text_lower = text.lower()
-        for sabor in sabores:
-            if sabor in text_lower:
-                return sabor
+        pratos_encontrados = []
+        
+        # Busca por pratos, priorizando os mais específicos
+        for prato in pratos:
+            if prato in text_lower:
+                pratos_encontrados.append(prato)
+        
+        # Retorna o prato mais específico (mais longo)
+        if pratos_encontrados:
+            pratos_encontrados.sort(key=len, reverse=True)
+            return pratos_encontrados[0]
+        
         return None
 
     def load_intents(self):
@@ -124,15 +188,30 @@ class PizzariaChatbotSimples:
             'cumprimento': ['oi', 'olá', 'ola', 'hello', 'hey', 'bom dia', 'boa tarde', 'boa noite'],
             'compra': [
                 'quero', 'pedir', 'comprar', 'pedido', 'vou querer',
-                'calabresa', 'calabreza', 'calabresa simples', 'calabresa tradicional', 'calabresa com cebola',
-                'margherita', 'marguerita', 'margheritta', 'margerita',
-                'pepperoni', 'peperoni', 'peperonni', 'peperone',
-                'portuguesa', 'portugueza', 'portugesa', 'portugesa tradicional',
-                'quatro queijos', '4 queijos', 'quatro queijo', 'quatro quejo', 'quatro queijos especial',
-                'frango catupiry', 'frango com catupiry', 'frango catupiri', 'frango catupry', 'frango catupiry especial',
-                'quero calabresa', 'quero calabreza', 'quero margherita', 'quero marguerita', 'quero pepperoni', 'quero peperoni', 'quero portuguesa', 'quero portugueza', 'quero quatro queijos', 'quero 4 queijos', 'quero frango catupiry', 'quero frango catupiri', 'quero frango com catupiry'
+                # Sushis
+                'salmão', 'salmao', 'salmon', 'sake',
+                'atum', 'tuna', 'maguro',
+                'kani', 'caranguejo', 'surimi',
+                'philadelphia', 'filadélfia', 'cream cheese',
+                # Temakis
+                'temaki', 'temaki salmão', 'temaki atum', 'temaki kani',
+                'hot roll', 'hot philadelphia', 'hot', 'hott',
+                'califórnia', 'california', 'california roll',
+                'atum spicy', 'spicy tuna', 'spicy',
+                'salmão grelhado', 'salmao grelhado', 'grilled salmon',
+                # Pratos quentes
+                'yakissoba', 'yakisoba', 'yaki soba', 'macarrão japonês',
+                'udon', 'macarrão udon', 'sopa udon',
+                'teriyaki', 'teriyaki chicken', 'frango teriyaki',
+                # Combinados
+                'combo', 'combinado', 'combo salmão', 'combo salmao',
+                'combo misto', 'combo família', 'combo familia',
+                'combo atum', 'rodízio', 'festival',
+                # Frases completas
+                'quero salmão', 'quero atum', 'quero temaki', 'quero yakissoba',
+                'quero combo', 'quero udon', 'quero hot roll', 'quero califórnia'
             ],
-            'itens_disponiveis': ['cardápio', 'menu', 'sabores', 'pizzas', 'opções', 'tem'],
+            'itens_disponiveis': ['cardápio', 'menu', 'sabores', 'sushis', 'opções', 'tem', 'pratos', 'temakis', 'yakissoba', 'combinados'],
             'precos': ['preço', 'preco', 'valor', 'custa', 'quanto'],
             'tempo_entrega': ['tempo', 'entrega', 'demora', 'prazo', 'quando'],
             'agradecimento': ['obrigado', 'obrigada', 'valeu', 'brigado', 'thanks'],
@@ -174,10 +253,10 @@ class PizzariaChatbotSimples:
                 intents_detected.append(intent)
                 probabilities.append(probability)
 
-                sabor = self.extract_sabor(sentence)
-                # Se for pedido de compra e tem sabor, responde confirmando o pedido
-                if intent == "compra" and sabor:
-                    responses.append(f"Pedido anotado! Sua pizza de {sabor.title()} está sendo preparada. Deseja adicionar algo mais?")
+                prato = self.extract_prato(sentence)
+                # Se for pedido de compra e tem prato, responde confirmando o pedido
+                if intent == "compra" and prato:
+                    responses.append(f"Pedido anotado! Seu(a) {prato.title()} está sendo preparado(a) pelo nosso sushiman. Deseja adicionar algo mais? 🍣")
                     sabor_confirmado = True
                     continue
 
@@ -199,8 +278,8 @@ class PizzariaChatbotSimples:
                             break
                     continue
 
-                # Se for compra sem sabor, responde normalmente
-                if intent == "compra" and not sabor:
+                # Se for compra sem prato, responde normalmente
+                if intent == "compra" and not prato:
                     for intent_data in self.intents['intents']:
                         if intent_data['tag'] == intent:
                             response = random.choice(intent_data['responses'])
@@ -246,10 +325,10 @@ class PizzariaChatbotSimples:
         }
 
 # Instância global do chatbot
-chatbot = PizzariaChatbotSimples()
+chatbot = RestauranteJaponesChatbotSimples()
 
 if __name__ == "__main__":
-    print("Chatbot da PIZZARIA DO WILL iniciado!")
+    print("Chatbot do Will Japanese Restaurant iniciado!")
     print("Digite 'sair' para encerrar.")
     
     while True:
